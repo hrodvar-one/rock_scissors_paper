@@ -18,8 +18,4 @@ public class Field {
             Если игроки показали одинаковый знак, то засчитывается ничья.
             """;
 
-    public static void main(String[] args) {
-        Field field = new Field();
-        System.out.println(field.gameRules);
-    }
 }
