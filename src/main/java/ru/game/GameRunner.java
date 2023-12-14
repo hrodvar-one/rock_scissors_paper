@@ -10,6 +10,7 @@ public class GameRunner {
         System.out.print("Введите ваше имя: ");
         String name = input.nextLine();
         System.out.println(name + ", рад Вас видеть!");
+        System.out.println("*********************************************************************");
         while (playerChoice != 2) {
             GameLogic gameLogic = new GameLogic();
             gameLogic.showMenu();
@@ -17,18 +18,16 @@ public class GameRunner {
             playerChoice = input.nextInt();
             switch (playerChoice) {
                 case (0):
-//                    System.out.println("Вы выбрали первый пункт меню");
                     gameLogic.playGame();
                     break;
                 case (1):
-//                System.out.println("Вы выбрали второй пункт меню");
                     Field field = new Field();
-                    System.out.println(field.gameRules);
+                    System.out.println(field.GAME_RULES);
                     break;
                 case (2):
-//                    System.out.println("Вы выбрали третий пункт меню");
                     break;
             }
+            System.out.println("*********************************************");
         }
     }
 }

@@ -7,31 +7,29 @@ public class GameLogic {
 
     public void roundResult(String choosingPlayer, String choosingComputer) {
         if (choosingPlayer.equals(choosingComputer)) {
-            System.out.println("Ничья");
+            System.out.println("Результат раунда: Ничья");
         } else if (choosingPlayer.equals("Камень")) {
             if (choosingComputer.equals("Ножницы")) {
-                System.out.println("Выиграл игрок");
+                System.out.println("Результат раунда: Выиграл игрок");
             } else {
-                System.out.println("Выиграл компьютер");
+                System.out.println("Результат раунда: Выиграл компьютер");
             }
         } else if (choosingPlayer.equals("Ножницы")) {
             if (choosingComputer.equals("Бумага")) {
-                System.out.println("Выиграл игрок");
+                System.out.println("Результат раунда: Выиграл игрок");
             } else {
-                System.out.println("Выиграл компьютер");
+                System.out.println("Результат раунда: Выиграл компьютер");
             }
         } else {
             if (choosingComputer.equals("Камень")) {
-                System.out.println("Выиграл игрок");
+                System.out.println("Результат раунда: Выиграл игрок");
             } else {
-                System.out.println("Выиграл компьютер");
+                System.out.println("Результат раунда: Выиграл компьютер");
             }
         }
     }
 
     public void playGame() {
-        int countPlayerWin = 0;
-        int countComputerWin = 0;
         String[] gameElements = {
                 "Камень", "Ножницы", "Бумага"
         };
@@ -43,40 +41,21 @@ public class GameLogic {
             System.out.println("**************** Раунд " + roundGame + " ********************");
             Random random = new Random();
             String choosingComputer = gameElements[random.nextInt(gameElements.length)];
-//            System.out.println(choosingComputer);
-//            String choosingPlayer = "";
-            System.out.println("Компьютер сделал выбор.");
             System.out.println();
-            System.out.print("Введите ваш выбор: ");
-//            for (int i = 0; i < gameElements.length; i++) {
-//                if (!choosingPlayer.equals(gameElements[i])) {
-//                    Scanner input = new Scanner(System.in);
-//                    choosingPlayer = input.nextLine();
-//                }
-//            }
+            System.out.println("Компьютер сделал свой выбор.");
+            System.out.println();
+            System.out.print("Введите ваш выбор (Камень, Ножницы или Бумага): ");
             boolean trigger = true;
             while (trigger) {
                 Scanner input = new Scanner(System.in);
                 String choosingPlayer = input.nextLine();
-//                for (String gameElement : gameElements) {
-//                    if (!choosingPlayer.equals(gameElement)) {
-//                        trigger = false;
-//                        break;
-//                    } else {
-//                        roundResult(choosingPlayer, choosingComputer);
-//                        break;
-//                    }
-//                }
-
                 for (String gameElement : gameElements) {
                     if (choosingPlayer.equals(gameElement)) {
                         roundResult(choosingPlayer, choosingComputer);
                         break;
-                    } else {
-                        trigger = false;
-//                        break;
                     }
                 }
+                trigger = false;
             }
             roundGame++;
         }
